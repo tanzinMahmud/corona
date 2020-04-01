@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Corona (COVID-19) Live Statistics</title>
+    <title>Corona Virus (COVID-19) Live Statistics</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,37 +18,42 @@
 <body ng-app="myApp" ng-controller="myCtrl">
     <div class="container-fluid">
         <div class="row pb-4">
-            <div class="col-md-12">
-                <h1 class="text-center">Corona (COVID-19) Live Statistics</h1>
+            <div class="col-md-12" style="background-color: #A63130;">
+                <h1 class="text-center text-white">Corona Virus (COVID-19) Live Statistics
+                </h1>
             </div>
         </div>
 
         <div class="row pb-4">
             <div class="col-md-2">
-                <h4 class="text-center">Total Cases</h4>
-                <h3 class="text-center">{{totalData.cases | number }}</h3>
+                <h4 class="text-center text-white" style="background-color: #8bc34a;">Total Cases</h4>
+                <h3 class="text-center text-white" style="background-color: #8bc34a;">{{totalData.cases | number }}</h3>
             </div>
             <div class="col-md-2">
-                <h4 class="text-center">Total Deaths</h4>
-                <h3 class="text-center">{{totalData.deaths | number }}</h3>
+                <h4 class="text-center text-white" style="background-color: #f50057;">Total Deaths</h4>
+                <h3 class="text-center text-white" style="background-color: #f50057;">{{totalData.deaths | number }}
+                </h3>
             </div>
             <div class="col-md-3">
-                <h4 class="text-center">Total Recovered</h4>
-                <h3 class="text-center">{{totalData.recovered | number }}</h3>
+                <h4 class="text-center text-white" style="background-color: #43a047;">Total Recovered</h4>
+                <h3 class="text-center text-white" style="background-color: #43a047;">{{totalData.recovered | number }}
+                </h3>
             </div>
             <div class="col-md-2">
-                <h4 class="text-center">Active Cases</h4>
-                <h3 class="text-center">{{totalData.active | number }}</h3>
+                <h4 class="text-center text-white" style="background-color: #ffc107;">Active Cases</h4>
+                <h3 class="text-center text-white" style="background-color: #ffc107;">{{totalData.active | number }}
+                </h3>
             </div>
             <div class="col-md-3">
-                <h4 class="text-center">Affected Countries</h4>
-                <h3 class="text-center">{{totalData.affectedCountries | number }}</h3>
+                <h4 class="text-center text-white" style="background-color: #c51162;">Affected Countries</h4>
+                <h3 class="text-center text-white" style="background-color: #c51162;">
+                    {{totalData.affectedCountries | number }}</h3>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-12 table-responsive">
-                <table class="table table-striped">
+                <table class="table table-bordered table-dark">
                     <thead>
                         <tr>
                             <th scope="col">Country</th>
@@ -64,7 +69,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="data in allCountryData | orderBy : 'country'">
+                        <tr ng-repeat="data in allCountryData | orderBy : '-cases'">
                             <td><img src="{{data.countryInfo.flag}}" style="height: 30px; width: 30px;">
                                 {{data.country}}</td>
                             <td class="text-center">{{data.cases | number }}</td>
