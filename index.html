@@ -7,13 +7,92 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- angularjs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="./app.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
-    <h1>Corona</h1>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div class="container-fluid">
+        <div class="row pb-4">
+            <div class="col-md-12">
+                <h1 class="text-center">Corona Live Statistics</h1>
+            </div>
+        </div>
+
+        <div class="row pb-4">
+            <div class="col-md-12">
+                <h1 class="text-center">Total</h1>
+            </div>
+        </div>
+
+        <div class="row pb-4">
+            <div class="col-md-2">
+                <h4 class="text-center">Total Cases</h4>
+                <h3 class="text-center">{{totalData.cases | number }}</h3>
+            </div>
+            <div class="col-md-2">
+                <h4 class="text-center">Total Deaths</h4>
+                <h3 class="text-center">{{totalData.deaths | number }}</h3>
+            </div>
+            <div class="col-md-3">
+                <h4 class="text-center">Total Recovered</h4>
+                <h3 class="text-center">{{totalData.recovered | number }}</h3>
+            </div>
+            <div class="col-md-2">
+                <h4 class="text-center">Active Cases</h4>
+                <h3 class="text-center">{{totalData.active | number }}</h3>
+            </div>
+            <div class="col-md-3">
+                <h4 class="text-center">Affected Countries</h4>
+                <h3 class="text-center">{{totalData.affectedCountries | number }}</h3>
+            </div>
+        </div>
+
+        <div class="row pb-4">
+            <div class="col-md-12">
+                <h1 class="text-center">By country</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">Country</th>
+                            <th scope="col">Cases</th>
+                            <th scope="col">Today Cases</th>
+                            <th scope="col">Deaths</th>
+                            <th scope="col">Today Deaths</th>
+                            <th scope="col">Recovered</th>
+                            <th scope="col">Active</th>
+                            <th scope="col">Critical</th>
+                            <th scope="col">Cases/Million</th>
+                            <th scope="col">Deaths/Million</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in allCountryData | orderBy : 'country'">
+                            <!-- <td>{{data.countryInfo.flag}}</td> -->
+                            <td>{{data.country}}</td>
+                            <td>{{data.cases | number }}</td>
+                            <td>{{data.todayCases | number }}</td>
+                            <td>{{data.deaths | number }}</td>
+                            <td>{{data.todayDeaths | number }}</td>
+                            <td>{{data.recovered | number }}</td>
+                            <td>{{data.active | number }}</td>
+                            <td>{{data.critical | number }}</td>
+                            <td>{{data.casesPerOneMillion | number }}</td>
+                            <td>{{data.deathsPerOneMillion | number }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
