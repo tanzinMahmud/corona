@@ -24,12 +24,6 @@
         </div>
 
         <div class="row pb-4">
-            <div class="col-md-12">
-                <h1 class="text-center">Total</h1>
-            </div>
-        </div>
-
-        <div class="row pb-4">
             <div class="col-md-2">
                 <h4 class="text-center">Total Cases</h4>
                 <h3 class="text-center">{{totalData.cases | number }}</h3>
@@ -52,41 +46,36 @@
             </div>
         </div>
 
-        <div class="row pb-4">
-            <div class="col-md-12">
-                <h1 class="text-center">By country</h1>
-            </div>
-        </div>
         <div class="row">
-            <div class="col-md-12">
-                <table class="table table-striped text-center">
+            <div class="col-md-12 table-responsive">
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">Country</th>
-                            <th scope="col">Cases</th>
-                            <th scope="col">Today Cases</th>
-                            <th scope="col">Deaths</th>
-                            <th scope="col">Today Deaths</th>
-                            <th scope="col">Recovered</th>
-                            <th scope="col">Active</th>
-                            <th scope="col">Critical</th>
-                            <th scope="col">Cases/Million</th>
-                            <th scope="col">Deaths/Million</th>
+                            <th class="text-center" scope="col">Cases</th>
+                            <th class="text-center" scope="col">Today Cases</th>
+                            <th class="text-center" scope="col">Deaths</th>
+                            <th class="text-center" scope="col">Today Deaths</th>
+                            <th class="text-center" scope="col">Recovered</th>
+                            <th class="text-center" scope="col">Active</th>
+                            <th class="text-center" scope="col">Critical</th>
+                            <th class="text-center" scope="col">Cases/Million</th>
+                            <th class="text-center" scope="col">Deaths/Million</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="data in allCountryData | orderBy : 'country'">
-                            <!-- <td>{{data.countryInfo.flag}}</td> -->
-                            <td>{{data.country}}</td>
-                            <td>{{data.cases | number }}</td>
-                            <td>{{data.todayCases | number }}</td>
-                            <td>{{data.deaths | number }}</td>
-                            <td>{{data.todayDeaths | number }}</td>
-                            <td>{{data.recovered | number }}</td>
-                            <td>{{data.active | number }}</td>
-                            <td>{{data.critical | number }}</td>
-                            <td>{{data.casesPerOneMillion | number }}</td>
-                            <td>{{data.deathsPerOneMillion | number }}</td>
+                            <td><img src="{{data.countryInfo.flag}}" style="height: 30px; width: 30px;">
+                                {{data.country}}</td>
+                            <td class="text-center">{{data.cases | number }}</td>
+                            <td class="text-center">{{data.todayCases | number }}</td>
+                            <td class="text-center">{{data.deaths | number }}</td>
+                            <td class="text-center">{{data.todayDeaths | number }}</td>
+                            <td class="text-center">{{data.recovered | number }}</td>
+                            <td class="text-center">{{data.active | number }}</td>
+                            <td class="text-center">{{data.critical | number }}</td>
+                            <td class="text-center">{{data.casesPerOneMillion | number }}</td>
+                            <td class="text-center">{{data.deathsPerOneMillion | number }}</td>
                         </tr>
                     </tbody>
                 </table>
