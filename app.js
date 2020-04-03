@@ -13,6 +13,8 @@ app.controller('myCtrl', function ($scope, $http) {
             $scope.totalData.recovered = new Number($scope.totalData.recovered).toLocaleString("bn-BD");
             $scope.totalData.active = new Number($scope.totalData.active).toLocaleString("bn-BD");
             $scope.totalData.affectedCountries = new Number($scope.totalData.affectedCountries).toLocaleString("bn-BD");
+
+            $scope.lastUpdateTime = new Date();
         });
 
     $http.get('https://corona.lmao.ninja/countries?sort=country')
@@ -42,6 +44,8 @@ app.controller('myCtrl', function ($scope, $http) {
                 $scope.totalData.recovered = new Number($scope.totalData.recovered).toLocaleString("bn-BD");
                 $scope.totalData.active = new Number($scope.totalData.active).toLocaleString("bn-BD");
                 $scope.totalData.affectedCountries = new Number($scope.totalData.affectedCountries).toLocaleString("bn-BD");
+
+                $scope.lastUpdateTime = new Date();
             });
 
         $http.get('https://corona.lmao.ninja/countries?sort=country')
