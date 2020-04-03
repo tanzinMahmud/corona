@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Coronavirus (COVID-19) Live Update</title>
+    <title>করোনাভাইরাস (COVID-19) লাইভ আপডেট</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,6 +14,8 @@
     <meta property="og:image" content="./assets/covid.png">
 
     <link rel="icon" href="./assets/corona.png" type="image/png" sizes="16x16">
+
+    <link rel="stylesheet" href="./css/style.css">
 
     <!-- angularjs -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -27,68 +29,68 @@
     <div class="container-fluid">
         <div class="row pb-4">
             <div class="col-md-12" style="background-color: #A63130;">
-                <h1 class="text-center text-white">Coronavirus (COVID-19) Live Update
+                <h1 class="text-center text-white">করোনাভাইরাস (COVID-19) লাইভ আপডেট
                 </h1>
             </div>
         </div>
 
         <div class="row pb-4">
-            <div class="col-md-2">
-                <h4 class="text-center text-white" style="background-color: #8bc34a;">Total Cases</h4>
-                <h3 class="text-center text-white" style="background-color: #8bc34a;">{{totalData.cases | number }}</h3>
+            <div class="col-md-3">
+                <h4 class="text-center text-white" style="background-color: #8bc34a;">মোট আক্রান্ত</h4>
+                <h3 class="text-center text-white" style="background-color: #8bc34a;">{{totalData.cases}}</h3>
             </div>
             <div class="col-md-2">
-                <h4 class="text-center text-white" style="background-color: #f50057;">Total Deaths</h4>
-                <h3 class="text-center text-white" style="background-color: #f50057;">{{totalData.deaths | number }}
+                <h4 class="text-center text-white" style="background-color: #f50057;">মোট মৃত্যু</h4>
+                <h3 class="text-center text-white" style="background-color: #f50057;">{{totalData.deaths}}
+                </h3>
+            </div>
+            <div class="col-md-2">
+                <h4 class="text-center text-white" style="background-color: #43a047;">মোট সুস্থ</h4>
+                <h3 class="text-center text-white" style="background-color: #43a047;">{{totalData.recovered}}
                 </h3>
             </div>
             <div class="col-md-3">
-                <h4 class="text-center text-white" style="background-color: #43a047;">Total Recovered</h4>
-                <h3 class="text-center text-white" style="background-color: #43a047;">{{totalData.recovered | number }}
+                <h4 class="text-center text-white" style="background-color: #ffc107;">বর্তমানে মোট অসুস্থ</h4>
+                <h3 class="text-center text-white" style="background-color: #ffc107;">{{totalData.active}}
                 </h3>
             </div>
             <div class="col-md-2">
-                <h4 class="text-center text-white" style="background-color: #ffc107;">Active Cases</h4>
-                <h3 class="text-center text-white" style="background-color: #ffc107;">{{totalData.active | number }}
-                </h3>
-            </div>
-            <div class="col-md-3">
-                <h4 class="text-center text-white" style="background-color: #c51162;">Affected Countries</h4>
+                <h4 class="text-center text-white" style="background-color: #c51162;">আক্রান্ত মোট দেশ</h4>
                 <h3 class="text-center text-white" style="background-color: #c51162;">
-                    {{totalData.affectedCountries | number }}</h3>
+                    {{totalData.affectedCountries}}</h3>
             </div>
         </div>
 
         <div class="row pb-2">
             <div class="col-md-12 table-responsive">
-                <table class="table table-bordered table-dark">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">Country</th>
-                            <th class="text-center" scope="col">Cases</th>
-                            <th class="text-center" scope="col">Today Cases</th>
-                            <th class="text-center" scope="col">Deaths</th>
-                            <th class="text-center" scope="col">Today Deaths</th>
-                            <th class="text-center" scope="col">Recovered</th>
-                            <th class="text-center" scope="col">Active</th>
-                            <th class="text-center" scope="col">Critical</th>
-                            <th class="text-center" scope="col">Cases/Million</th>
-                            <th class="text-center" scope="col">Deaths/Million</th>
+                            <th scope="col">দেশ</th>
+                            <th class="text-center" scope="col">আক্রান্ত</th>
+                            <th class="text-center" scope="col">আজকে আক্রান্ত</th>
+                            <th class="text-center" scope="col">মৃত্যু</th>
+                            <th class="text-center" scope="col">আজকে মৃত্যু</th>
+                            <th class="text-center" scope="col">সুস্থ</th>
+                            <th class="text-center" scope="col">বর্তমানে অসুস্থ</th>
+                            <th class="text-center" scope="col">ঝুঁকিপূর্ণ</th>
+                            <th class="text-center" scope="col">আক্রান্ত প্রতি ১০ লাখে</th>
+                            <th class="text-center" scope="col">মৃত্যু প্রতি ১০ লাখে</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="data in allCountryData | orderBy : '-cases'">
-                            <td><img src="{{data.countryInfo.flag}}" style="height: 30px; width: 30px;">
+                            <td><img src="{{data.countryInfo.flag}}" style="height: 23px; width: 33px;">
                                 {{data.country}}</td>
-                            <td class="text-center">{{data.cases | number }}</td>
-                            <td class="text-center">{{data.todayCases | number }}</td>
-                            <td class="text-center">{{data.deaths | number }}</td>
-                            <td class="text-center">{{data.todayDeaths | number }}</td>
-                            <td class="text-center">{{data.recovered | number }}</td>
-                            <td class="text-center">{{data.active | number }}</td>
-                            <td class="text-center">{{data.critical | number }}</td>
-                            <td class="text-center">{{data.casesPerOneMillion | number }}</td>
-                            <td class="text-center">{{data.deathsPerOneMillion | number }}</td>
+                            <td class="text-center">{{data.cases}}</td>
+                            <td class="text-center">{{data.todayCases}}</td>
+                            <td class="text-center">{{data.deaths}}</td>
+                            <td class="text-center">{{data.todayDeaths}}</td>
+                            <td class="text-center">{{data.recovered}}</td>
+                            <td class="text-center">{{data.active}}</td>
+                            <td class="text-center">{{data.critical}}</td>
+                            <td class="text-center">{{data.casesPerOneMillion}}</td>
+                            <td class="text-center">{{data.deathsPerOneMillion}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -97,7 +99,7 @@
 
         <div class="row pb-2">
             <div class="col-md-12">
-                <p class="text-center"><i>Developed by @ Md. Tanzin Mahmud</i></p>
+                <p class="text-center"><i>নির্মাণে @ মোঃ তানজিন মাহমুদ</i></p>
             </div>
         </div>
     </div>
