@@ -31,31 +31,31 @@ app.controller('myCtrl', function ($scope, $http) {
             }
         });
 
-    // setInterval(function () {
-    //     $http.get('https://corona.lmao.ninja/all')
-    //         .then(function (response) {
-    //             $scope.totalData = response.data;
-    //             $scope.totalData.cases = new Number($scope.totalData.cases).toLocaleString("bn-BD");
-    //             $scope.totalData.deaths = new Number($scope.totalData.deaths).toLocaleString("bn-BD");
-    //             $scope.totalData.recovered = new Number($scope.totalData.recovered).toLocaleString("bn-BD");
-    //             $scope.totalData.active = new Number($scope.totalData.active).toLocaleString("bn-BD");
-    //             $scope.totalData.affectedCountries = new Number($scope.totalData.affectedCountries).toLocaleString("bn-BD");
-    //         });
+    setInterval(function () {
+        $http.get('https://corona.lmao.ninja/all')
+            .then(function (response) {
+                $scope.totalData = response.data;
+                $scope.totalData.cases = new Number($scope.totalData.cases).toLocaleString("bn-BD");
+                $scope.totalData.deaths = new Number($scope.totalData.deaths).toLocaleString("bn-BD");
+                $scope.totalData.recovered = new Number($scope.totalData.recovered).toLocaleString("bn-BD");
+                $scope.totalData.active = new Number($scope.totalData.active).toLocaleString("bn-BD");
+                $scope.totalData.affectedCountries = new Number($scope.totalData.affectedCountries).toLocaleString("bn-BD");
+            });
 
-    //     $http.get('https://corona.lmao.ninja/countries?sort=country')
-    //         .then(function (response) {
-    //             $scope.allCountryData = response.data;
-    //             for (var i = 0; i < $scope.allCountryData.length; i++) {
-    //                 $scope.allCountryData[i].cases = new Number($scope.allCountryData[i].cases).toLocaleString("bn-BD");
-    //                 $scope.allCountryData[i].todayCases = new Number($scope.allCountryData[i].todayCases).toLocaleString("bn-BD");
-    //                 $scope.allCountryData[i].deaths = new Number($scope.allCountryData[i].deaths).toLocaleString("bn-BD");
-    //                 $scope.allCountryData[i].todayDeaths = new Number($scope.allCountryData[i].todayDeaths).toLocaleString("bn-BD");
-    //                 $scope.allCountryData[i].recovered = new Number($scope.allCountryData[i].recovered).toLocaleString("bn-BD");
-    //                 $scope.allCountryData[i].active = new Number($scope.allCountryData[i].active).toLocaleString("bn-BD");
-    //                 $scope.allCountryData[i].critical = new Number($scope.allCountryData[i].critical).toLocaleString("bn-BD");
-    //                 $scope.allCountryData[i].casesPerOneMillion = new Number($scope.allCountryData[i].casesPerOneMillion).toLocaleString("bn-BD");
-    //                 $scope.allCountryData[i].deathsPerOneMillion = new Number($scope.allCountryData[i].deathsPerOneMillion).toLocaleString("bn-BD");
-    //             }
-    //         });
-    // }, 3000);
+        $http.get('https://corona.lmao.ninja/countries?sort=country')
+            .then(function (response) {
+                $scope.allCountryData = response.data;
+                for (var i = 0; i < $scope.allCountryData.length; i++) {
+                    $scope.allCountryData[i].cases = new Number($scope.allCountryData[i].cases).toLocaleString("bn-BD");
+                    $scope.allCountryData[i].todayCases = new Number($scope.allCountryData[i].todayCases).toLocaleString("bn-BD");
+                    $scope.allCountryData[i].deaths = new Number($scope.allCountryData[i].deaths).toLocaleString("bn-BD");
+                    $scope.allCountryData[i].todayDeaths = new Number($scope.allCountryData[i].todayDeaths).toLocaleString("bn-BD");
+                    $scope.allCountryData[i].recovered = new Number($scope.allCountryData[i].recovered).toLocaleString("bn-BD");
+                    $scope.allCountryData[i].active = new Number($scope.allCountryData[i].active).toLocaleString("bn-BD");
+                    $scope.allCountryData[i].critical = new Number($scope.allCountryData[i].critical).toLocaleString("bn-BD");
+                    $scope.allCountryData[i].casesPerOneMillion = new Number($scope.allCountryData[i].casesPerOneMillion).toLocaleString("bn-BD");
+                    $scope.allCountryData[i].deathsPerOneMillion = new Number($scope.allCountryData[i].deathsPerOneMillion).toLocaleString("bn-BD");
+                }
+            });
+    }, 3000);
 });
