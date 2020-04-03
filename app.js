@@ -61,5 +61,5 @@ app.controller('myCtrl', function ($scope, $http) {
                     $scope.allCountryData[i].deathsPerOneMillion = new Number($scope.allCountryData[i].deathsPerOneMillion).toLocaleString("bn-BD");
                 }
             });
-    }, 3000);
+    }, 10000);
 });
