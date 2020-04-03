@@ -18,6 +18,8 @@ app.controller('myCtrl', function ($scope, $http) {
     $http.get('https://corona.lmao.ninja/countries?sort=country')
         .then(function (response) {
             $scope.allCountryData = response.data;
+            $scope.allCountryData = _.sortBy($scope.allCountryData, 'cases').reverse();
+
             for (var i = 0; i < $scope.allCountryData.length; i++) {
                 $scope.allCountryData[i].cases = new Number($scope.allCountryData[i].cases).toLocaleString("bn-BD");
                 $scope.allCountryData[i].todayCases = new Number($scope.allCountryData[i].todayCases).toLocaleString("bn-BD");
@@ -45,6 +47,8 @@ app.controller('myCtrl', function ($scope, $http) {
         $http.get('https://corona.lmao.ninja/countries?sort=country')
             .then(function (response) {
                 $scope.allCountryData = response.data;
+                $scope.allCountryData = _.sortBy($scope.allCountryData, 'cases').reverse();
+
                 for (var i = 0; i < $scope.allCountryData.length; i++) {
                     $scope.allCountryData[i].cases = new Number($scope.allCountryData[i].cases).toLocaleString("bn-BD");
                     $scope.allCountryData[i].todayCases = new Number($scope.allCountryData[i].todayCases).toLocaleString("bn-BD");
