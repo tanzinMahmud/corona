@@ -80,7 +80,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">দেশ</th>
+                            <th scope="col">পৃথিবী/দেশ</th>
                             <th class="text-center" scope="col">আক্রান্ত</th>
                             <th class="text-center" scope="col">আজকে আক্রান্ত</th>
                             <th class="text-center" scope="col">মৃত্যু</th>
@@ -93,8 +93,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="data in allCountryData">
-                            <td><img src="{{data.countryInfo.flag}}" style="height: 23px; width: 33px;">
+                        <tr ng-repeat="data in allCountryData" style="background: {{$index==0?'#DEE2E6':'#ffffff'}};">
+                            <td ng-if="$index==0">{{data.country}}</td>
+                            <td ng-if="$index!=0"><img src="{{data.countryInfo.flag}}"
+                                    style="height: 23px; width: 33px;">
                                 {{data.country}}</td>
                             <td class="text-center">{{data.cases}}</td>
                             <td class="text-center">{{data.todayCases}}</td>

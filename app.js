@@ -33,6 +33,7 @@ app.controller('myCtrl', function ($scope, $http) {
                 $scope.allCountryData[i].casesPerOneMillion = new Number($scope.allCountryData[i].casesPerOneMillion).toLocaleString("bn-BD");
                 $scope.allCountryData[i].deathsPerOneMillion = new Number($scope.allCountryData[i].deathsPerOneMillion).toLocaleString("bn-BD");
             }
+            $scope.allCountryData[0].country = "পৃথিবী";
         });
 
     setInterval(function () {
@@ -64,6 +65,8 @@ app.controller('myCtrl', function ($scope, $http) {
                     $scope.allCountryData[i].casesPerOneMillion = new Number($scope.allCountryData[i].casesPerOneMillion).toLocaleString("bn-BD");
                     $scope.allCountryData[i].deathsPerOneMillion = new Number($scope.allCountryData[i].deathsPerOneMillion).toLocaleString("bn-BD");
                 }
+
+                $scope.allCountryData[0].country = "পৃথিবী";
             });
-    }, 10000);
+    }, 3000);
 });
