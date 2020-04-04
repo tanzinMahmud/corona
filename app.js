@@ -68,5 +68,5 @@ app.controller('myCtrl', function ($scope, $http) {
 
                 $scope.allCountryData[0].country = "পৃথিবী";
             });
-    }, 3000);
+    }, 9000);
 });
