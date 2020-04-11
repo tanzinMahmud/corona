@@ -14,7 +14,8 @@ app.controller('myCtrl', function ($scope, $http) {
             $scope.totalData.active = new Number($scope.totalData.active).toLocaleString("bn-BD");
             $scope.totalData.affectedCountries = new Number($scope.totalData.affectedCountries).toLocaleString("bn-BD");
 
-            $scope.lastUpdateTime = new Date();
+            $scope.lastUpdateTime = new Date().toLocaleString("bn-BD").replace("PM", "অপরাহ্ন").replace("AM", "পূর্বাহ্ণ");
+
         });
 
     $http.get('https://corona.lmao.ninja/countries?sort=country')
@@ -51,7 +52,8 @@ app.controller('myCtrl', function ($scope, $http) {
                 $scope.totalData.active = new Number($scope.totalData.active).toLocaleString("bn-BD");
                 $scope.totalData.affectedCountries = new Number($scope.totalData.affectedCountries).toLocaleString("bn-BD");
 
-                $scope.lastUpdateTime = new Date();
+                $scope.lastUpdateTime = new Date().toLocaleString("bn-BD").replace("PM", "অপরাহ্ন").replace("AM", "পূর্বাহ্ণ");
+                str.replace("Microsoft", "W3Schools")
             });
 
         $http.get('https://corona.lmao.ninja/countries?sort=country')
