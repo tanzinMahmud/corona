@@ -14,7 +14,18 @@ app.controller('myCtrl', function ($scope, $http) {
             $scope.totalData.active = new Number($scope.totalData.active).toLocaleString("bn-BD");
             $scope.totalData.affectedCountries = new Number($scope.totalData.affectedCountries).toLocaleString("bn-BD");
 
-            $scope.lastUpdateTime = new Date().toLocaleString("bn-BD").replace("PM", "অপরাহ্ন").replace("AM", "পূর্বাহ্ণ");
+            $scope.lastUpdateTime = new Date();
+            try {
+                if ($scope.lastUpdateTime.toLocaleString("bn-BD").includes("PM")) {
+                    $scope.lastUpdateTime = $scope.lastUpdateTime.toLocaleString("bn-BD").replace("PM", "অপরাহ্ন");
+                }
+                else if ($scope.lastUpdateTime.toLocaleString("bn-BD").includes("AM")) {
+                    $scope.lastUpdateTime = $scope.lastUpdateTime.toLocaleString("bn-BD").replace("AM", "পূর্বাহ্ণ");
+                }
+            }
+            catch (e) {
+
+            }
 
         });
 
@@ -52,8 +63,19 @@ app.controller('myCtrl', function ($scope, $http) {
                 $scope.totalData.active = new Number($scope.totalData.active).toLocaleString("bn-BD");
                 $scope.totalData.affectedCountries = new Number($scope.totalData.affectedCountries).toLocaleString("bn-BD");
 
-                $scope.lastUpdateTime = new Date().toLocaleString("bn-BD").replace("PM", "অপরাহ্ন").replace("AM", "পূর্বাহ্ণ");
-                str.replace("Microsoft", "W3Schools")
+                $scope.lastUpdateTime = new Date();
+                try {
+                    if ($scope.lastUpdateTime.toLocaleString("bn-BD").includes("PM")) {
+                        $scope.lastUpdateTime = $scope.lastUpdateTime.toLocaleString("bn-BD").replace("PM", "অপরাহ্ন");
+                    }
+                    else if ($scope.lastUpdateTime.toLocaleString("bn-BD").includes("AM")) {
+                        $scope.lastUpdateTime = $scope.lastUpdateTime.toLocaleString("bn-BD").replace("AM", "পূর্বাহ্ণ");
+                    }
+                }
+                catch (e) {
+
+                }
+
             });
 
         $http.get('https://corona.lmao.ninja/countries?sort=country')
