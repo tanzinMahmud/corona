@@ -21,6 +21,7 @@ app.controller('myCtrl', function ($scope, $http) {
         .then(function (response) {
             $scope.allCountryData = response.data;
             $scope.allCountryData = _.sortBy($scope.allCountryData, 'cases').reverse();
+            var bdData = {};
 
             for (var i = 0; i < $scope.allCountryData.length; i++) {
                 $scope.allCountryData[i].cases = new Number($scope.allCountryData[i].cases).toLocaleString("bn-BD");
@@ -32,6 +33,11 @@ app.controller('myCtrl', function ($scope, $http) {
                 $scope.allCountryData[i].critical = new Number($scope.allCountryData[i].critical).toLocaleString("bn-BD");
                 $scope.allCountryData[i].casesPerOneMillion = new Number($scope.allCountryData[i].casesPerOneMillion).toLocaleString("bn-BD");
                 $scope.allCountryData[i].deathsPerOneMillion = new Number($scope.allCountryData[i].deathsPerOneMillion).toLocaleString("bn-BD");
+                if ($scope.allCountryData[i].country == 'Bangladesh') {
+                    bdData = $scope.allCountryData[i];
+                    $scope.allCountryData.splice(i, 1);
+                    $scope.allCountryData.unshift(bdData);
+                }
             }
         });
 
@@ -63,6 +69,11 @@ app.controller('myCtrl', function ($scope, $http) {
                     $scope.allCountryData[i].critical = new Number($scope.allCountryData[i].critical).toLocaleString("bn-BD");
                     $scope.allCountryData[i].casesPerOneMillion = new Number($scope.allCountryData[i].casesPerOneMillion).toLocaleString("bn-BD");
                     $scope.allCountryData[i].deathsPerOneMillion = new Number($scope.allCountryData[i].deathsPerOneMillion).toLocaleString("bn-BD");
+                    if ($scope.allCountryData[i].country == 'Bangladesh') {
+                        bdData = $scope.allCountryData[i];
+                        $scope.allCountryData.splice(i, 1);
+                        $scope.allCountryData.unshift(bdData);
+                    }
                 }
             });
     }, 60000);
