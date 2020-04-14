@@ -6,3 +6,10 @@
 * {
     font-family: 'SolaimanLipi';
   }
+
+.stickyTable thead th {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    border-top: none;
+}

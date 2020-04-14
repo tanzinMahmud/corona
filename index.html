@@ -71,43 +71,45 @@
         </div>
 
         <div class="row pb-2">
-            <div class="col-md-12 table-responsive">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">দেশ</th>
-                            <th class="text-center" scope="col">আক্রান্ত</th>
-                            <th class="text-center" scope="col">আজকে আক্রান্ত</th>
-                            <th class="text-center" scope="col">মৃত্যু</th>
-                            <th class="text-center" scope="col">আজকে মৃত্যু</th>
-                            <th class="text-center" scope="col">সুস্থ</th>
-                            <th class="text-center" scope="col">বর্তমানে অসুস্থ</th>
-                            <th class="text-center" scope="col">ঝুঁকিপূর্ণ</th>
-                            <th class="text-center" scope="col">আক্রান্ত প্রতি ১০ লাখে</th>
-                            <th class="text-center" scope="col">মৃত্যু প্রতি ১০ লাখে</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="data in allCountryData"
-                            style="background-color: {{$index==0?'#DEE1B1':'#ffffff'}};">
-                            <td><img src="{{data.countryInfo.flag}}" style="height: 23px; width: 33px;">
-                                {{data.country}}</td>
-                            <td class="text-center">{{data.cases}}</td>
-                            <td class="text-center">{{data.todayCases}}</td>
-                            <td class="text-center">{{data.deaths}}</td>
-                            <td class="text-center">{{data.todayDeaths}}</td>
-                            <td class="text-center">{{data.recovered}}</td>
-                            <td class="text-center">{{data.active}}</td>
-                            <td class="text-center">{{data.critical}}</td>
-                            <td class="text-center">{{data.casesPerOneMillion}}</td>
-                            <td class="text-center">{{data.deathsPerOneMillion}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="col-md-12">
+                <hr class="mb-0">
+                <div class="table-responsive vh-100 stickyTable">
+                    <table class="table table-bordered" style="border-top: none;">
+                        <thead>
+                            <tr>
+                                <th scope=" col">দেশ</th>
+                                <th class="text-center" scope="col">আক্রান্ত</th>
+                                <th class="text-center" scope="col">আজকে আক্রান্ত</th>
+                                <th class="text-center" scope="col">মৃত্যু</th>
+                                <th class="text-center" scope="col">আজকে মৃত্যু</th>
+                                <th class="text-center" scope="col">সুস্থ</th>
+                                <th class="text-center" scope="col">বর্তমানে অসুস্থ</th>
+                                <th class="text-center" scope="col">ঝুঁকিপূর্ণ</th>
+                                <th class="text-center" scope="col">আক্রান্ত প্রতি ১০ লাখে</th>
+                                <th class="text-center" scope="col">মৃত্যু প্রতি ১০ লাখে</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="data in allCountryData">
+                                <td><img src="{{data.countryInfo.flag}}" style="height: 23px; width: 33px;">
+                                    {{data.country}}</td>
+                                <td class="text-center">{{data.cases}}</td>
+                                <td class="text-center">{{data.todayCases}}</td>
+                                <td class="text-center">{{data.deaths}}</td>
+                                <td class="text-center">{{data.todayDeaths}}</td>
+                                <td class="text-center">{{data.recovered}}</td>
+                                <td class="text-center">{{data.active}}</td>
+                                <td class="text-center">{{data.critical}}</td>
+                                <td class="text-center">{{data.casesPerOneMillion}}</td>
+                                <td class="text-center">{{data.deathsPerOneMillion}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
-        <div class="row pb-2">
+        <div class="row py-3">
             <div class="col-md-12">
                 <div class="d-flex justify-content-center">
                     <p>সোর্সঃ</p>
