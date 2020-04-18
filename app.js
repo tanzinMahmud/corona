@@ -5,7 +5,7 @@ app.controller('myCtrl', function ($scope, $http) {
     $scope.totalData = [];
     $scope.allCountryData = [];
 
-    $http.get('https://corona.lmao.ninja/all')
+    $http.get('https://corona.lmao.ninja/v2/all')
         .then(function (response) {
             $scope.totalData = response.data;
             $scope.totalData.cases = new Number($scope.totalData.cases).toLocaleString("bn-BD");
@@ -29,7 +29,7 @@ app.controller('myCtrl', function ($scope, $http) {
 
         });
 
-    $http.get('https://corona.lmao.ninja/countries?sort=country')
+    $http.get('https://corona.lmao.ninja/v2/countries?sort=country')
         .then(function (response) {
             $scope.allCountryData = response.data;
             $scope.allCountryData = _.sortBy($scope.allCountryData, 'cases').reverse();
